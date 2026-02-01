@@ -9,7 +9,11 @@ K-Means, Auto-K, UNSW-NB15, Clustering Jaringan, Unsupervised Machine Learning.
 
 Abstrak
 
-Traffic jaringan modern mengandung potensi ancaman siber yang kompleks, sementara dataset nyata umumnya tidak berlabel sehingga menyulitkan penerapan model supervised learning. Clustering sebagai teknik unsupervised learning dapat mengelompokkan data berdasarkan pola karakteristik tanpa memerlukan label, sehingga relevan untuk analisis pola trafik jaringan. Penelitian ini bertujuan untuk mengelompokkan data trafik jaringan pada dataset UNSW-NB15 menggunakan algoritma K-Means dengan penentuan jumlah cluster secara otomatis (Auto-K), yaitu kombinasi Elbow Method dan Silhouette Score untuk memilih jumlah cluster optimal. Data UNSW-NB15 merupakan dataset benchmark untuk analisis keamanan jaringan yang mencakup trafik normal dan berbagai jenis serangan. Hasil penelitian menunjukkan bahwa jumlah cluster optimal yang diperoleh adalah dua cluster (K=2) berdasarkan kombinasi Elbow Method dan Silhouette Score. Analisis cluster menunjukkan adanya perbedaan karakteristik trafik jaringan yang signifikan antara kedua cluster tersebut, yang berkorelasi dengan distribusi trafik normal dan trafik serangan..Analisis cluster menunjukkan pola trafik yang berbeda pada masing-masing grup cluster, yang dapat digunakan sebagai indikator awal aktivitas anomali atau serangan jaringan. Pendekatan ini diharapkan dapat memperkaya eksplorasi pola data trafik jaringan dan menjadi dasar pengembangan sistem pengawasan jaringan berbasis unsupervised learning.
+Traffic jaringan modern mengandung potensi ancaman siber yang semakin kompleks, sementara pada banyak kondisi nyata data trafik tidak selalu tersedia dalam bentuk berlabel. Hal ini membatasi penerapan pendekatan supervised learning pada sistem keamanan jaringan. Oleh karena itu, teknik clustering sebagai metode unsupervised learning menjadi relevan untuk mengeksplorasi pola trafik jaringan tanpa ketergantungan terhadap label.
+
+Penelitian ini bertujuan untuk menganalisis pola trafik jaringan pada dataset UNSW-NB15 menggunakan algoritma K-Means dengan penentuan jumlah cluster secara otomatis (Auto-K). Berbeda dari penelitian sebelumnya yang menggunakan K-Means terutama untuk tujuan visualisasi data, penelitian ini menerapkan K-Means sebagai metode analisis utama dengan penentuan jumlah cluster berbasis kombinasi Elbow Method dan Silhouette Score.
+
+Hasil eksperimen menunjukkan bahwa jumlah cluster optimal yang diperoleh adalah dua cluster (K = 2). Analisis karakteristik cluster menunjukkan perbedaan pola statistik trafik jaringan yang signifikan dan berkorelasi dengan distribusi trafik normal dan serangan, meskipun label tidak digunakan dalam proses pembentukan cluster. Pendekatan ini diharapkan dapat menjadi dasar eksplorasi pola trafik jaringan dan mendukung pengembangan sistem pengawasan jaringan berbasis unsupervised learning.
 
 1. PENDAHULUAN
 1.1 Latar Belakang
@@ -76,7 +80,6 @@ TINJAUAN PUSTAKA**
 2.1 Machine Learning
 
 Machine learning merupakan salah satu cabang dari kecerdasan buatan (Artificial Intelligence) yang memungkinkan sistem komputer untuk belajar dari data dan membuat keputusan atau prediksi tanpa diprogram secara eksplisit. Berdasarkan cara pembelajarannya, machine learning dibagi menjadi tiga kategori utama, yaitu supervised learning, unsupervised learning, dan reinforcement learning.
-
 Pada supervised learning, model dilatih menggunakan data berlabel, sedangkan pada unsupervised learning, model bekerja tanpa label dan berfokus pada pencarian pola atau struktur tersembunyi dalam data. Penelitian ini menggunakan pendekatan unsupervised learning karena dataset trafik jaringan pada kondisi nyata sering kali tidak memiliki label yang lengkap atau akurat.
 
 2.2 Unsupervised Learning
@@ -174,6 +177,13 @@ Berfokus pada eksplorasi pola trafik jaringan secara unsupervised
 Menyediakan analisis cluster sebagai dasar interpretasi struktur data trafik
 
 Dengan demikian, penelitian ini diharapkan dapat memberikan kontribusi dalam pengembangan metode clustering yang lebih objektif dan aplikatif untuk analisis trafik jaringan.
+2.7.1 Penelitian Zoghi dan Serpen (2021)
+
+Zoghi dan Serpen (2021) melakukan analisis terhadap dataset UNSW-NB15 menggunakan algoritma K-Means yang dikombinasikan dengan teknik reduksi dimensi seperti Principal Component Analysis (PCA) dan t-SNE. Penelitian tersebut bertujuan untuk melakukan eksplorasi dan visualisasi struktur data UNSW-NB15 guna memahami kompleksitas dan distribusi trafik jaringan.
+
+Dalam penelitian tersebut, K-Means digunakan sebagai alat bantu visualisasi dan eksplorasi data, tanpa pembahasan mendalam mengenai penentuan jumlah cluster secara objektif maupun interpretasi cluster sebagai representasi pola trafik jaringan. Selain itu, penentuan nilai K tidak menjadi fokus utama penelitian.
+
+Berbeda dengan pendekatan tersebut, penelitian ini menempatkan K-Means sebagai metode analisis utama dengan penentuan jumlah cluster secara otomatis (Auto-K) dan fokus pada interpretasi karakteristik cluster sebagai pola trafik jaringan.
 
 **BAB III
 
@@ -196,6 +206,8 @@ Metode Clustering	K-Means standar	K-Means dengan Auto-K
 Penentuan Jumlah Cluster	Manual / asumsi	Otomatis (Elbow + Silhouette)
 Evaluasi Cluster	Terbatas / tidak konsisten	Silhouette Score
 Reproducibility	Tidak selalu tersedia	Notebook Python reproducible
+
+
 3.3 Kontribusi dan Novelty Penelitian
 
 Berdasarkan kesenjangan yang telah diidentifikasi, kontribusi utama dan novelty penelitian ini adalah:
